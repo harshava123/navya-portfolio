@@ -164,55 +164,73 @@ const Hero = () => {
             
             {/* Call to Action */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex flex-col gap-8 justify-center items-center mt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 5.6 }}
             >
-              <motion.a 
-                href="mailto:navyadhrtii@gmail.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-full font-semibold hover-lift">
-                  Get In Touch
-                </Button>
-              </motion.a>
+              {/* Get In Touch Button */}
+              <motion.div className="w-full flex justify-center">
+                <motion.a 
+                  href="mailto:navyadhrtii@gmail.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative overflow-hidden inline-block"
+                >
+                  <Button className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:from-primary/90 hover:to-primary/70 px-8 py-3 rounded-full font-semibold hover-lift relative z-10 border border-primary/20 shadow-lg">
+                    <span className="relative z-10">Get In Touch</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.6 }}
+                    />
+                  </Button>
+                </motion.a>
+              </motion.div>
               
-              <div className="flex gap-3">
+              {/* Social Media Icons */}
+              <motion.div 
+                className="flex gap-6 justify-center items-center"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 6.0 }}
+              >
                 <motion.a 
                   href="https://github.com/p-navya/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileHover={{ scale: 1.15, rotate: 5, y: -2 }}
                   whileTap={{ scale: 0.9 }}
+                  className="group"
                 >
-                  <Button variant="outline" size="icon" className="hover-lift rounded-full">
-                    <Github className="h-5 w-5" />
+                  <Button variant="outline" size="icon" className="hover-lift rounded-full border-2 border-muted-foreground/20 hover:border-primary/50 bg-card/50 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300 shadow-md w-12 h-12">
+                    <Github className="h-5 w-5 group-hover:text-primary transition-colors" />
                   </Button>
                 </motion.a>
                 <motion.a 
                   href="https://www.linkedin.com/in/p-navyaa/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  whileHover={{ scale: 1.15, rotate: -5, y: -2 }}
                   whileTap={{ scale: 0.9 }}
+                  className="group"
                 >
-                  <Button variant="outline" size="icon" className="hover-lift rounded-full">
-                    <Linkedin className="h-5 w-5" />
+                  <Button variant="outline" size="icon" className="hover-lift rounded-full border-2 border-muted-foreground/20 hover:border-primary/50 bg-card/50 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300 shadow-md w-12 h-12">
+                    <Linkedin className="h-5 w-5 group-hover:text-primary transition-colors" />
                   </Button>
                 </motion.a>
-              </div>
+              </motion.div>
             </motion.div>
             
             {/* Scroll Indicator */}
             <motion.div
-              className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+              className="mt-16 flex justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 6.0 }}
+              transition={{ duration: 0.6, delay: 6.2 }}
             >
               <motion.div
                 animate={{ y: [0, 8, 0] }}
