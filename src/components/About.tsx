@@ -36,57 +36,85 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="min-h-[70vh] flex flex-col md:flex-row items-stretch justify-center bg-white dark:bg-[#18181b] relative overflow-hidden pt-0">
-      {/* Left Side */}
-      <div
-        ref={leftRef}
-        className="flex-1 flex flex-col justify-center px-8 py-12 md:py-24 bg-[#ededed] dark:bg-[#23272f] rounded-br-[80px] md:rounded-br-[160px] z-10"
-      >
-        <div className="flex-1 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Driven and detail-oriented final year B.Tech student specializing in Artificial Intelligence and Machine Learning, with a strong command of Python and hands-on internship experience in real-world automation projects. Strong foundation in full-stack development and AI tools, with a passion for building impactful, intelligent systems. Adept at problem-solving, collaborating in fast-paced environments, and committed to continuous learning from industry practices. Eager to contribute meaningfully to innovative projects and deepen expertise in applied Artificial Intelligence, machine learning, and software engineering through industry-driven opportunities.
-          </p>
-          <div className="flex gap-8">
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-muted p-6 bg-white/80 dark:bg-[#23272f]/80 shadow-md min-w-[120px]">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">1+</div>
-              <div className="text-base font-semibold mt-2">Years of experience</div>
+    <section id="about" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">About Me</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Passionate about transforming data into intelligent solutions that make a real impact.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <div ref={leftRef} className="space-y-8">
+              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+                <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+                  Driven and detail-oriented final year B.Tech student specializing in <span className="text-foreground font-semibold">Artificial Intelligence and Machine Learning</span>, with a strong command of Python and hands-on internship experience in real-world automation projects.
+                </p>
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Strong foundation in <span className="text-foreground font-semibold">full-stack development and AI tools</span>, with a passion for building impactful, intelligent systems. Adept at problem-solving, collaborating in fast-paced environments, and committed to continuous learning from industry practices.
+                </p>
+              </div>
+              
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-card rounded-2xl p-6 text-center shadow-card hover-lift">
+                  <div className="text-4xl font-bold text-foreground mb-2">1+</div>
+                  <div className="text-sm font-semibold text-muted-foreground">Years of Experience</div>
+                </div>
+                <div className="bg-card rounded-2xl p-6 text-center shadow-card hover-lift">
+                  <div className="text-4xl font-bold text-foreground mb-2">10+</div>
+                  <div className="text-sm font-semibold text-muted-foreground">Projects Completed</div>
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-muted p-6 bg-white/80 dark:bg-[#23272f]/80 shadow-md min-w-[120px]">
-              <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">10+</div>
-              <div className="text-base font-semibold mt-2">Projects done</div>
+            
+            {/* Right Side - Info Card */}
+            <div ref={rightRef} className="flex justify-center">
+              <div className="bg-card rounded-3xl p-8 shadow-card max-w-sm w-full hover-lift">
+                <div className="text-center mb-6">
+                  <div className="w-20 h-20 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary-foreground">NP</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Navya Pachigolla</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3 p-3 rounded-xl bg-secondary">
+                    <Mail className="h-5 w-5 text-foreground" />
+                    <div>
+                      <div className="text-xs text-muted-foreground">Email</div>
+                      <div className="font-semibold text-sm text-foreground">navyadhrtii@gmail.com</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3 p-3 rounded-xl bg-secondary">
+                    <div className="h-5 w-5 bg-primary rounded-full"></div>
+                    <div>
+                      <div className="text-xs text-muted-foreground">Location</div>
+                      <div className="font-semibold text-sm text-foreground">Hyderabad, India</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center space-x-4 mt-6 pt-6 border-t border-border">
+                  <a href="https://github.com/p-navya/" target="_blank" rel="noopener noreferrer" 
+                     className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors duration-200">
+                    <Github className="h-5 w-5 text-foreground" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/p-navyaa/" target="_blank" rel="noopener noreferrer" 
+                     className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors duration-200">
+                    <Linkedin className="h-5 w-5 text-foreground" />
+                  </a>
+                  <a href="mailto:navyadhrtii@gmail.com" target="_blank" rel="noopener noreferrer" 
+                     className="p-3 rounded-full bg-secondary hover:bg-muted transition-colors duration-200">
+                    <Mail className="h-5 w-5 text-foreground" />
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      {/* Right Side */}
-      <div
-        ref={rightRef}
-        className="flex-1 flex flex-col justify-center items-center bg-black dark:bg-[#111] relative px-8 py-12 md:py-24 z-0 rounded-bl-[80px] md:rounded-bl-[160px]"
-      >
-        <div className="w-full max-w-xs bg-white/80 dark:bg-[#23272f]/80 rounded-2xl shadow-xl p-8 flex flex-col gap-4 items-center border border-white/30 dark:border-[#23272f]/40">
-          <div>
-            <div className="text-muted-foreground text-sm">Name</div>
-            <div className="font-bold text-lg">Navya Pachigolla</div>
-          </div>
-          <div>
-            <div className="text-muted-foreground text-sm">Email</div>
-            <div className="font-bold text-lg">navyadhrtii@gmail.com</div>
-          </div>
-          <div>
-            <div className="text-muted-foreground text-sm">Location</div>
-            <div className="font-bold text-lg">Hyderabad, India</div>
-          </div>
-          <div className="flex space-x-4 mt-2">
-            <a href="https://github.com/p-navya/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-              <Github className="h-6 w-6 text-primary" />
-            </a>
-            <a href="https://www.linkedin.com/in/p-navyaa/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-              <Linkedin className="h-6 w-6 text-primary" />
-            </a>
-            <a href="mailto:navyadhrtii@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
-              <Mail className="h-6 w-6 text-primary" />
-            </a>
           </div>
         </div>
       </div>

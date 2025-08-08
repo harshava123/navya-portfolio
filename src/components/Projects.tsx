@@ -74,30 +74,60 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-[#18181b]">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projects.map((project, index) => (
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Featured Projects</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Innovative solutions that showcase my expertise in AI, machine learning, and full-stack development
+            </p>
+          </div>
+          
+          {/* Featured Projects */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {featuredProjects.map((project, index) => (
               <div
                 ref={el => (cardsRef.current[index] = el)}
                 key={index}
-                className="rounded-3xl bg-[#ededed] dark:bg-[#23272f] shadow-2xl border border-white/30 dark:border-[#23272f]/40 flex flex-col overflow-hidden"
+                className="bg-card rounded-3xl shadow-card hover-lift overflow-hidden"
               >
-                {project.image && (
-                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover rounded-t-3xl" />
-                )}
-                <div className="p-8 flex flex-col flex-1">
-                  <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">{project.title}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary text-xs font-semibold border border-primary/20 dark:border-accent/20">
+                      <span key={techIndex} className="pill bg-secondary text-foreground text-sm font-medium">
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4 flex-1">{project.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Other Projects */}
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-2">Other Projects</h3>
+            <p className="text-muted-foreground">Additional work and experiments</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {otherProjects.map((project, index) => (
+              <div
+                ref={el => (cardsRef.current[featuredProjects.length + index] = el)}
+                key={index}
+                className="bg-card rounded-2xl p-6 shadow-card hover-lift"
+              >
+                <h4 className="text-lg font-bold text-foreground mb-3">{project.title}</h4>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} className="px-3 py-1 rounded-full bg-secondary text-foreground text-xs font-medium">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}

@@ -34,42 +34,94 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="min-h-[70vh] flex flex-col md:flex-row items-stretch justify-center bg-white dark:bg-[#18181b] relative overflow-hidden pt-0">
-      {/* Left Side */}
-      <div
-        ref={leftRef}
-        className="flex-1 flex flex-col justify-center px-8 py-12 md:py-24 bg-[#ededed] dark:bg-[#23272f] rounded-br-[80px] md:rounded-br-[160px] z-10"
-      >
-        <div className="flex-1 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Education</h2>
-          <div className="mb-6">
-            <div className="text-lg font-semibold">2022 - 2026</div>
-            <div className="text-lg font-bold">B.Tech</div>
-            <div className="text-lg">MallaReddy University, Hyderabad</div>
-            <div className="text-lg">Pursuing B.Tech specialized in Artificial Intelligence & Machine Learning</div>
+    <section id="experience" className="py-20 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Experience & Education</h2>
+            <p className="text-lg text-muted-foreground">
+              My journey in technology and continuous learning
+            </p>
           </div>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            A results-driven B.Tech undergraduate specializing in Artificial Intelligence and Machine Learning (AIML), with 8 months of professional experience as an AIML Engineer Intern. Possesses a strong foundation in full-stack development and Python-based technologies, with hands-on experience in developing scalable web applications, managing databases, and designing responsive user interfaces. Demonstrates proficiency in machine learning concepts, data preprocessing, and model deployment. Known for strong problem-solving skills, a collaborative mindset, and a commitment to continuous learning and innovation in technology.
-          </p>
-        </div>
-      </div>
-      {/* Right Side */}
-      <div
-        ref={rightRef}
-        className="flex-1 flex flex-col justify-center items-center bg-black dark:bg-[#111] relative px-8 py-12 md:py-24 z-0 rounded-bl-[80px] md:rounded-bl-[160px]"
-      >
-        <div className="w-full max-w-md bg-white/80 dark:bg-[#23272f]/80 rounded-2xl shadow-xl p-8 flex flex-col gap-4 items-center border border-white/30 dark:border-[#23272f]/40">
-          <h3 className="text-2xl font-bold mb-2">Work Experience</h3>
-          <div className="flex flex-col gap-2">
-            <div className="text-lg font-semibold">October 2024 – June 2025</div>
-            <div className="text-lg font-bold">AI/ML Intern</div>
-            <div className="text-lg">Arthicus Global Pvt. Ltd., Hyderabad, India</div>
+          
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Education */}
+            <div ref={leftRef} className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center mr-4">
+                  <div className="text-xl">🎓</div>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Education</h3>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="border-l-4 border-primary pl-6">
+                  <div className="pill bg-secondary text-foreground text-sm font-medium mb-2 inline-block">
+                    2022 - 2026
+                  </div>
+                  <h4 className="text-xl font-bold text-foreground mb-2">B.Tech in AI & Machine Learning</h4>
+                  <p className="text-muted-foreground mb-3">MallaReddy University, Hyderabad</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Pursuing B.Tech specialized in Artificial Intelligence & Machine Learning with focus on practical applications and industry-relevant projects.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Work Experience */}
+            <div ref={rightRef} className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center mr-4">
+                  <div className="text-xl">💼</div>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">Work Experience</h3>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="border-l-4 border-primary pl-6">
+                  <div className="pill bg-secondary text-foreground text-sm font-medium mb-2 inline-block">
+                    October 2024 – June 2025
+                  </div>
+                  <h4 className="text-xl font-bold text-foreground mb-2">AI/ML Engineer Intern</h4>
+                  <p className="text-muted-foreground mb-4">Arthicus Global Pvt. Ltd., Hyderabad, India</p>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-muted-foreground text-sm">Developed AI-driven solutions including AI Warehouse Assistant and Documentation Automation Tool</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-muted-foreground text-sm">Restructured company website to enhance performance and user experience</p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <p className="text-muted-foreground text-sm">Represented company at HYSEA industry event, showcasing projects to tech professionals</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <ul className="list-disc pl-6 mt-4 space-y-2 text-muted-foreground text-base text-left w-full">
-            <li>Developed AI-driven solutions such as an AI Warehouse Assistant, a Documentation Automation Tool, and an internal Employee Portal (CRM application).</li>
-            <li>Restructured and modernized the company's official website to enhance performance and user experience.</li>
-            <li>Represented the company at the HYSEA industry event, showcasing projects and engaging with tech professionals.</li>
-          </ul>
+          
+          {/* Key Achievements */}
+          <div className="mt-16 bg-card rounded-3xl p-8 shadow-card">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Key Achievements</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground mb-2">8+</div>
+                <p className="text-muted-foreground">Months Professional Experience</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground mb-2">50+</div>
+                <p className="text-muted-foreground">Certifications & Badges</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-foreground mb-2">10+</div>
+                <p className="text-muted-foreground">AI/ML Projects Completed</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

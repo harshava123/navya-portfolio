@@ -9,26 +9,31 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white/60 dark:bg-[#23272f]/80 border-t border-border shadow-2xl backdrop-blur-lg">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+    <footer className="bg-card border-t border-border">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
+          <div className="md:col-span-2">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
               Navya Pachigolla
             </h3>
-            <p className="text-muted-foreground mb-4">
-              B.Tech | Artificial Intelligence & Machine Learning
+            <p className="text-muted-foreground mb-6 leading-relaxed max-w-md">
+              AI/ML Engineer & Developer passionate about transforming data into intelligent solutions. Building impactful systems with cutting-edge technology.
             </p>
-            <div className="flex space-x-2">
+            <div className="flex space-x-3">
               <a href="https://github.com/p-navya/" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" className="rounded-full hover:bg-primary/10 transition-colors hover:scale-110 duration-200">
+                <Button variant="outline" size="icon" className="rounded-full hover-lift">
                   <Github className="h-4 w-4" />
                 </Button>
               </a>
               <a href="https://www.linkedin.com/in/p-navyaa/" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="icon" className="rounded-full hover:bg-primary/10 transition-colors hover:scale-110 duration-200">
+                <Button variant="outline" size="icon" className="rounded-full hover-lift">
                   <Linkedin className="h-4 w-4" />
+                </Button>
+              </a>
+              <a href="mailto:navyadhrtii@gmail.com" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="icon" className="rounded-full hover-lift">
+                  <Mail className="h-4 w-4" />
                 </Button>
               </a>
             </div>
@@ -36,8 +41,8 @@ const Footer = () => {
           
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
-            <div className="space-y-2">
+            <h4 className="font-semibold text-foreground mb-6">Navigation</h4>
+            <div className="space-y-3">
               {["About", "Experience", "Skills", "Projects", "Contact"].map((item) => (
                 <button
                   key={item}
@@ -47,7 +52,7 @@ const Footer = () => {
                       element.scrollIntoView({ behavior: 'smooth' });
                     }
                   }}
-                  className="block text-muted-foreground hover:text-primary transition-colors duration-200"
+                  className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-left"
                 >
                   {item}
                 </button>
@@ -57,10 +62,16 @@ const Footer = () => {
           
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <div className="space-y-2 text-muted-foreground">
-              <p>navyadhrtii@gmail.com</p>
-              <p>Hyderabad, India</p>
+            <h4 className="font-semibold text-foreground mb-6">Get in Touch</h4>
+            <div className="space-y-3">
+              <div>
+                <p className="text-xs text-muted-foreground mb-1">Email</p>
+                <p className="text-foreground font-medium">navyadhrtii@gmail.com</p>
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground mb-1">Location</p>
+                <p className="text-foreground font-medium">Hyderabad, India</p>
+              </div>
             </div>
           </div>
         </div>
@@ -68,15 +79,13 @@ const Footer = () => {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center text-muted-foreground mb-4 md:mb-0">
-              <span>© {currentYear} Navya P. Made with</span>
-              <Heart className="h-4 w-4 mx-1 text-red-500 fill-current" />
-              <span>and lots of coffee</span>
+              <span>© {currentYear} Navya Pachigolla. All rights reserved.</span>
             </div>
             
             <Button 
               variant="ghost" 
               onClick={scrollToTop}
-              className="text-muted-foreground hover:text-primary"
+              className="text-muted-foreground hover:text-foreground hover-lift"
             >
               Back to Top ↑
             </Button>
