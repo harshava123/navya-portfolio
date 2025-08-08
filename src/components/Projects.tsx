@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
@@ -87,23 +88,42 @@ const Projects = () => {
           {/* Featured Projects */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {featuredProjects.map((project, index) => (
-              <div
+              <motion.div
                 ref={el => (cardsRef.current[index] = el)}
                 key={index}
-                className="bg-card rounded-3xl shadow-card hover-lift overflow-hidden"
+                className="bg-card rounded-3xl shadow-card card-hover overflow-hidden"
+                whileHover={{ 
+                  scale: 1.03,
+                  rotateX: 2,
+                  rotateY: index % 2 === 0 ? 2 : -2,
+                }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
               >
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-foreground mb-4">{project.title}</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="pill bg-secondary text-foreground text-sm font-medium">
+                      <motion.span 
+                        key={techIndex} 
+                        className="pill bg-secondary text-foreground text-sm font-medium"
+                        whileHover={{ scale: 1.1, rotate: 1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
           
@@ -115,21 +135,39 @@ const Projects = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
             {otherProjects.map((project, index) => (
-              <div
+              <motion.div
                 ref={el => (cardsRef.current[featuredProjects.length + index] = el)}
                 key={index}
-                className="bg-card rounded-2xl p-6 shadow-card hover-lift"
+                className="bg-card rounded-2xl p-6 shadow-card card-hover"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotate: index % 2 === 0 ? 1 : -1,
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.8 + (index * 0.1),
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
               >
                 <h4 className="text-lg font-bold text-foreground mb-3">{project.title}</h4>
                 <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="px-3 py-1 rounded-full bg-secondary text-foreground text-xs font-medium">
+                    <motion.span 
+                      key={techIndex} 
+                      className="px-3 py-1 rounded-full bg-secondary text-foreground text-xs font-medium"
+                      whileHover={{ scale: 1.1, rotate: 2 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

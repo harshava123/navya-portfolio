@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const skills = [
@@ -52,49 +53,120 @@ const Skills = () => {
               </p>
             </div>
             
-            {/* Skills Pills - Innovimagine Style */}
+            {/* Skills Pills - Enhanced Animations */}
             <div className="flex flex-wrap justify-center gap-4 mb-16">
               {skills.map((skill, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="pill bg-card text-foreground font-medium shadow-card hover-lift cursor-default"
+                  className="pill bg-card text-foreground font-medium shadow-card skill-card cursor-default"
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: Math.random() > 0.5 ? 2 : -2,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ 
+                    duration: 0.3, 
+                    delay: index * 0.05,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                  }}
                 >
                   {skill}
-                </div>
+                </motion.div>
               ))}
             </div>
             
             {/* Highlights Cards */}
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift text-center">
-                <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card card-hover text-center"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 5,
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.2,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+              >
+                <motion.div 
+                  className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <div className="text-2xl">📊</div>
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-bold text-foreground mb-4">Data-Driven Insights</h3>
                 <p className="text-muted-foreground">
                   Transform raw data into actionable strategies that drive real business growth.
                 </p>
-              </div>
+              </motion.div>
               
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift text-center">
-                <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card card-hover text-center"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: -5,
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.4,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+              >
+                <motion.div 
+                  className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <div className="text-2xl">💡</div>
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-bold text-foreground mb-4">AI-Powered Strategy</h3>
                 <p className="text-muted-foreground">
                   Leverage cutting-edge AI to decode your audience and craft winning campaigns.
                 </p>
-              </div>
+              </motion.div>
               
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift text-center">
-                <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card card-hover text-center"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 5,
+                }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.6,
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20
+                }}
+              >
+                <motion.div 
+                  className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-6"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <div className="text-2xl">⚡</div>
-                </div>
+                </motion.div>
                 <h3 className="text-xl font-bold text-foreground mb-4">End-to-End Delivery</h3>
                 <p className="text-muted-foreground">
                   From strategy to launch, we build, implement, and deliver results that matter.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

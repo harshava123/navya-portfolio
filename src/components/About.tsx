@@ -1,6 +1,7 @@
 import GradientCard from "@/components/ui/gradient-card";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const About = () => {
@@ -49,31 +50,59 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Side - Content */}
             <div ref={leftRef} className="space-y-8">
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card card-hover"
+                whileHover={{ 
+                  scale: 1.02,
+                  rotateX: 2,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <p className="text-lg leading-relaxed text-muted-foreground mb-6">
                   Driven and detail-oriented final year B.Tech student specializing in <span className="text-foreground font-semibold">Artificial Intelligence and Machine Learning</span>, with a strong command of Python and hands-on internship experience in real-world automation projects.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   Strong foundation in <span className="text-foreground font-semibold">full-stack development and AI tools</span>, with a passion for building impactful, intelligent systems. Adept at problem-solving, collaborating in fast-paced environments, and committed to continuous learning from industry practices.
                 </p>
-              </div>
+              </motion.div>
               
               {/* Stats */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-card rounded-2xl p-6 text-center shadow-card hover-lift">
+                <motion.div 
+                  className="bg-card rounded-2xl p-6 text-center shadow-card card-hover"
+                  whileHover={{ 
+                    scale: 1.05,
+                    rotateY: 5,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
                   <div className="text-4xl font-bold text-foreground mb-2">1+</div>
                   <div className="text-sm font-semibold text-muted-foreground">Years of Experience</div>
-                </div>
-                <div className="bg-card rounded-2xl p-6 text-center shadow-card hover-lift">
+                </motion.div>
+                <motion.div 
+                  className="bg-card rounded-2xl p-6 text-center shadow-card card-hover"
+                  whileHover={{ 
+                    scale: 1.05,
+                    rotateY: -5,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
                   <div className="text-4xl font-bold text-foreground mb-2">10+</div>
                   <div className="text-sm font-semibold text-muted-foreground">Projects Completed</div>
-                </div>
+                </motion.div>
               </div>
             </div>
             
             {/* Right Side - Info Card */}
             <div ref={rightRef} className="flex justify-center">
-              <div className="bg-card rounded-3xl p-8 shadow-card max-w-sm w-full hover-lift">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card max-w-sm w-full card-hover"
+                whileHover={{ 
+                  scale: 1.03,
+                  rotateY: 3,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <div className="text-center mb-6">
                   <div className="w-20 h-20 bg-primary rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-2xl font-bold text-primary-foreground">NP</span>
@@ -113,7 +142,7 @@ const About = () => {
                     <Mail className="h-5 w-5 text-foreground" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

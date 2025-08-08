@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const Contact = () => {
@@ -51,7 +52,14 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Left Side - Contact Info */}
             <div ref={leftRef} className="space-y-8">
-              <div className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card card-hover"
+                whileHover={{ 
+                  scale: 1.02,
+                  rotateX: 2,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <div className="flex items-center mb-6">
                   <div className="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mr-4">
                     <Mail className="h-8 w-8 text-foreground" />
@@ -82,10 +90,17 @@ const Contact = () => {
                     <span className="text-muted-foreground text-sm">Technical Support</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
               
               {/* Contact Details */}
-              <div className="bg-card rounded-3xl p-8 shadow-card">
+              <motion.div 
+                className="bg-card rounded-3xl p-8 shadow-card card-hover"
+                whileHover={{ 
+                  scale: 1.02,
+                  rotateY: 2,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <h3 className="text-xl font-bold text-foreground mb-6">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
@@ -123,11 +138,19 @@ const Contact = () => {
                     <Mail className="h-5 w-5 text-foreground" />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             </div>
             
             {/* Right Side - Contact Form */}
-            <div ref={rightRef} className="bg-card rounded-3xl p-8 shadow-card">
+            <motion.div 
+              ref={rightRef} 
+              className="bg-card rounded-3xl p-8 shadow-card card-hover"
+              whileHover={{ 
+                scale: 1.02,
+                rotateY: -2,
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold text-foreground mb-2">
@@ -180,7 +203,7 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
