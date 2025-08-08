@@ -7,19 +7,48 @@ const Header = () => {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    setIsDark(isDarkMode);
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    }
   }, []);
 
   const toggleTheme = () => {
-    document.documentElement.classList.toggle('dark');
-    setIsDark(!isDark);
+    const newTheme = isDark ? 'light' : 'dark';
+    
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      setIsDark(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      setIsDark(false);
+    }
+    
+    // Save theme preference to localStorage
+    localStorage.setItem('theme', newTheme);
   };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    const homeElement = document.getElementById('home');
+    if (homeElement) {
+      homeElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     setIsMenuOpen(false);
   };
@@ -33,12 +62,15 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-foreground">
+          <button 
+            onClick={scrollToTop}
+            className="text-2xl font-bold text-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
+          >
             Navya P
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -52,10 +84,12 @@ const Header = () => {
               </button>
             ))}
             <Button
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2 rounded-full font-medium"
+              variant="ghost"
+              size="icon"
               onClick={toggleTheme}
+              className="hover:bg-secondary rounded-full"
             >
-              {isDark ? "Light" : "Dark"}
+              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
 
@@ -65,7 +99,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="hover:bg-gray-100"
+              className="hover:bg-secondary"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -73,7 +107,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="hover:bg-gray-100"
+              className="hover:bg-secondary"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -83,12 +117,12 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
-            <div className="flex flex-col space-y-2 bg-white rounded-lg p-4 shadow-card">
+            <div className="flex flex-col space-y-2 bg-card rounded-lg p-4 shadow-card border border-border">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium"
+                  className="text-left px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-md transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </button>

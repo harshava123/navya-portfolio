@@ -37,7 +37,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-background pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center bg-background pt-28 md:pt-24 relative z-10">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
@@ -45,7 +45,7 @@ const Hero = () => {
               className="text-lg text-muted-foreground font-medium"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
             >
               Hi, I am
             </motion.p>
@@ -54,7 +54,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="relative mb-8"
             >
               <h1 className="text-responsive-xl font-bold leading-tight text-shadow-soft">
@@ -62,13 +62,13 @@ const Hero = () => {
                   className="overflow-hidden"
                   initial={{ height: 0 }}
                   animate={{ height: "auto" }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
                 >
                   <motion.span 
                     className="inline-block text-foreground letter-spacing-wide"
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
                   >
                     Navya
                   </motion.span>
@@ -78,13 +78,13 @@ const Hero = () => {
                   className="overflow-hidden"
                   initial={{ height: 0 }}
                   animate={{ height: "auto" }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
                 >
                   <motion.span 
                     className="inline-block gradient-text letter-spacing-wide"
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+                    transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
                   >
                     Pachigolla
                   </motion.span>
@@ -96,7 +96,7 @@ const Hero = () => {
                 className="w-24 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full mx-auto mt-6"
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: "6rem", opacity: 1 }}
-                transition={{ duration: 1, delay: 1.4, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
               />
               
               {/* Subtle decorative dots */}
@@ -104,25 +104,25 @@ const Hero = () => {
                 className="flex justify-center space-x-2 mt-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.8 }}
+                transition={{ duration: 0.4, delay: 1.0 }}
               >
                 <motion.div
                   className="w-2 h-2 bg-primary/40 rounded-full"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, delay: 1.8 }}
+                  transition={{ duration: 0.3, delay: 1.0 }}
                 />
                 <motion.div
                   className="w-2 h-2 bg-primary/60 rounded-full"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, delay: 2.0 }}
+                  transition={{ duration: 0.3, delay: 1.1 }}
                 />
                 <motion.div
                   className="w-2 h-2 bg-primary/40 rounded-full"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  transition={{ duration: 0.4, delay: 2.2 }}
+                  transition={{ duration: 0.3, delay: 1.2 }}
                 />
               </motion.div>
             </motion.div>
@@ -130,14 +130,14 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 2.4 }}
+              transition={{ duration: 0.4, delay: 1.3 }}
               className="text-responsive-lg text-foreground font-semibold relative mb-6"
             >
               <motion.div
                 className="overflow-hidden inline-block"
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
-                transition={{ duration: 2.5, delay: 2.6, ease: "easeInOut" }}
+                transition={{ duration: 1.2, delay: 1.4, ease: "easeInOut" }}
               >
                 <span className="whitespace-nowrap">AI/ML Engineer & Developer</span>
               </motion.div>
@@ -147,7 +147,7 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ 
                   duration: 0.3, 
-                  delay: 5.1,
+                  delay: 2.6,
                   ease: "easeInOut"
                 }}
               />
@@ -157,7 +157,7 @@ const Hero = () => {
               className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 5.2 }}
+              transition={{ duration: 0.5, delay: 2.8 }}
             >
               Transforming data into intelligent solutions. Passionate about building impactful AI systems and innovative applications that make a real difference.
             </motion.p>
@@ -167,7 +167,7 @@ const Hero = () => {
               className="flex flex-col gap-8 justify-center items-center mt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 5.6 }}
+              transition={{ duration: 0.5, delay: 3.2 }}
             >
               {/* Get In Touch Button */}
               <motion.div className="w-full flex justify-center">
@@ -196,7 +196,7 @@ const Hero = () => {
                 className="flex gap-6 justify-center items-center"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 6.0 }}
+                transition={{ duration: 0.5, delay: 3.6 }}
               >
                 <motion.a 
                   href="https://github.com/p-navya/" 

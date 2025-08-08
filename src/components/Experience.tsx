@@ -1,40 +1,44 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const Experience = () => {
-  const leftRef = useRef<HTMLDivElement | null>(null);
-  const rightRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
-  useEffect(() => {
-    if (leftRef.current) {
-      gsap.fromTo(
-        leftRef.current,
-        { opacity: 0, x: -60 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          ease: "power3.out",
-        }
-      );
+  // Animation variants for fast split effect
+  const leftVariant = {
+    hidden: { opacity: 0, x: -80, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 25,
+        duration: 0.4
+      }
     }
-    if (rightRef.current) {
-      gsap.fromTo(
-        rightRef.current,
-        { opacity: 0, x: 60 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: 0.2,
-          ease: "power3.out",
-        }
-      );
+  };
+
+  const rightVariant = {
+    hidden: { opacity: 0, x: 80, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 25,
+        duration: 0.4,
+        delay: 0.1
+      }
     }
-  }, []);
+  };
 
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section id="experience" className="py-20 bg-background" ref={sectionRef}>
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -46,7 +50,12 @@ const Experience = () => {
           
           <div className="grid md:grid-cols-2 gap-12">
             {/* Education */}
-            <div ref={leftRef} className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+            <motion.div 
+              className="bg-card rounded-3xl p-8 shadow-card hover-lift"
+              variants={leftVariant}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center mr-4">
                   <div className="text-xl">🎓</div>
@@ -66,10 +75,15 @@ const Experience = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
             
             {/* Work Experience */}
-            <div ref={rightRef} className="bg-card rounded-3xl p-8 shadow-card hover-lift">
+            <motion.div 
+              className="bg-card rounded-3xl p-8 shadow-card hover-lift"
+              variants={rightVariant}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-secondary rounded-2xl flex items-center justify-center mr-4">
                   <div className="text-xl">💼</div>
@@ -101,7 +115,7 @@ const Experience = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
           
           {/* Key Achievements */}

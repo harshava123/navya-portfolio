@@ -80,53 +80,51 @@ const Projects = () => {
   const otherProjects = projects.filter(p => !p.featured);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
-  // Container variants for staggered animations
+  // Container variants for fast staggered animations
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
 
-  // Card variants for split animations (featured projects)
+  // Card variants for fast split animations (featured projects)
   const cardVariants = {
     hidden: (index: number) => ({
       opacity: 0,
-      x: index % 2 === 0 ? -100 : 100, // Split from left and right
-      y: 50,
-      rotateY: index % 2 === 0 ? -15 : 15,
-      scale: 0.8
+      x: index % 2 === 0 ? -80 : 80, // Split from left and right
+      y: 30,
+      scale: 0.9
     }),
     visible: {
       opacity: 1,
       x: 0,
       y: 0,
-      rotateY: 0,
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.8
+        stiffness: 250,
+        damping: 30,
+        duration: 0.4
       }
     }
   };
 
-  // Variants for other projects - Deck of Cards Animation
+  // Variants for other projects - Fast Deck of Cards Animation
   const otherCardVariants = {
     hidden: (index: number) => ({
-      opacity: 0.8,
-      x: -50 + (index * 2), // Slight horizontal offset for stacking
-      y: -20 + (index * 3), // Slight vertical offset for stacking
-      rotate: -5 + (index * 1.5), // Slight rotation for deck effect
-      scale: 0.9 - (index * 0.01), // Slightly smaller for depth
-      zIndex: otherProjects.length - index, // Stack order (top card has highest z-index)
+      opacity: 0.7,
+      x: -30 + (index * 1.5), // Slight horizontal offset for stacking
+      y: -15 + (index * 2), // Slight vertical offset for stacking
+      rotate: -3 + (index * 1), // Slight rotation for deck effect
+      scale: 0.95 - (index * 0.005), // Slightly smaller for depth
+      zIndex: otherProjects.length - index, // Stack order
     }),
     visible: {
       opacity: 1,
@@ -137,15 +135,15 @@ const Projects = () => {
       zIndex: 1,
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 25,
-        duration: 0.8,
+        stiffness: 200,
+        damping: 30,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
   };
 
-  // Container variants for deck animation
+  // Container variants for fast deck animation
   const otherContainerVariants = {
     hidden: { 
       opacity: 0,
@@ -153,9 +151,9 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.5,
-        staggerChildren: 0.2, // Slower stagger for card dealing effect
-        delayChildren: 0.3
+        duration: 0.3,
+        staggerChildren: 0.1, // Faster stagger for quick card dealing
+        delayChildren: 0.2
       }
     }
   };
